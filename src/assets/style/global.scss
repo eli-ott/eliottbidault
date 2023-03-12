@@ -1,0 +1,25 @@
+$dark: #0f0b09;
+$brown: #594236;
+$blue: #48ACF0;
+$white: #e6e0db;
+
+@font-face {
+    font-family: bebasNeue;
+    src: url('../fonts/BebasNeue-Regular.ttf');
+}
+@font-face {
+    font-family: playfair-italic;
+    src: url('./assets/fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf');
+    font-weight: 400;
+}
+
+@mixin flex($dir: row, $wrap: nowrap, $justify: center, $align: center) {
+    display: flex;
+    flex-flow: $dir $wrap;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin offset($x, $y) {   
+    transform: translate($x, $y);
+}

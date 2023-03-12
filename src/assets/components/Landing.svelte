@@ -216,7 +216,7 @@
         data-title="visit-reims"
         on:click={transition}
         on:keydown={transition}
-        src="pictures/visitReims/landingPage.jpg"
+        src="pictures/visitReims/landingPage.png"
         alt="visit reims landing"
       />
     </div>

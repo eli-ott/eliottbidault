@@ -71,7 +71,7 @@ export const store = readable({
   },
   visitReims: {
     path: "pictures/visitReims/",
-    src: ["landingPage.jpg", "otherPage.jpg"],
+    src: ["landingPage.png", "otherPage.png"],
     alt: ["landing", "other monument"],
     speed: [1.1, 0.95]
   },

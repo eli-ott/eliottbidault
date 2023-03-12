@@ -7,11 +7,6 @@ $white: #e6e0db;
     font-family: bebasNeue;
     src: url('../fonts/BebasNeue-Regular.ttf');
 }
-@font-face {
-    font-family: playfair-italic;
-    src: url('./assets/fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf');
-    font-weight: 400;
-}
 
 @mixin flex($dir: row, $wrap: nowrap, $justify: center, $align: center) {
     display: flex;

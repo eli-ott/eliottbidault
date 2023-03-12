@@ -136,7 +136,7 @@
       </div>
       <div class="visit">
         <a
-          href="https://iss-tracker-eli-ott.vercel.app"
+          href="https://eli-ott.github.io/visit-reims/"
           target="_blank"
           rel="noopener noreferrer"
         >

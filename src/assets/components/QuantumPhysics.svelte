@@ -155,16 +155,16 @@
     height: 275vh;
 
     @media screen and (max-width: 400px) {
-      height: 275vh;
+      height: 285vh;
     }
     @media screen and (min-width: 401px) and (max-width: 500px) {
-      height: 315vh;
+      height: 325vh;
     }
     @media screen and (min-width: 501px) and (max-width: 600px) {
-      height: 340vh;
+      height: 350vh;
     }
     @media screen and (min-width: 601px) and (max-width: 1024px) {
-      height: 380vh;
+      height: 390vh;
     }
   }
 </style>

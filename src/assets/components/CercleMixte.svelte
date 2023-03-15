@@ -67,12 +67,12 @@
     >
       <ul>
         <li>
-          <p>Completed:</p>
-          <p>July 2022</p>
+          <p>Completé:</p>
+          <p>Juil. 2022</p>
         </li>
         <li>
           <p>Role:</p>
-          <p>Front & Back End</p>
+          <p>Full-Stack</p>
         </li>
         <li>
           <p>Technologies:</p>
@@ -134,7 +134,7 @@
     >
       <div class="back">
         <div class="line" />
-        <a on:click={goBack} on:keydown={goBack}>back</a>
+        <a on:click={goBack} on:keydown={goBack}>retour</a>
       </div>
       <div class="visit">
         <a
@@ -142,7 +142,7 @@
           target="_blank"
           rel="noopener noreferrer"
         >
-          visit site
+          visiter le site
         </a>
         <div class="line" />
       </div>

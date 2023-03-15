@@ -1,5 +1,5 @@
 <script>
-  import { onMount } from "svelte";
+  import { beforeUpdate, onDestroy, onMount } from "svelte";
   import { quadInOut } from "svelte/easing";
   import { fade } from "svelte/transition";
   import Scroll from "../plugins/scroll";
@@ -24,10 +24,10 @@
       el: document.querySelector("[data-scroll-container]"),
       lerp: 0.75,
       treshold: -10,
-      draggable: true
+      draggable: true,
     });
 
-    if(window.screen.width > 1024) {
+    if (window.screen.width > 1024) {
       maxTranslate = 300;
     } else if (window.screen.width > 675 && window.screen.width <= 1024) {
       maxTranslate = 150;
@@ -67,15 +67,15 @@
     >
       <ul>
         <li>
-          <p>Completed:</p>
-          <p>Jan 2023</p>
+          <p>Completé:</p>
+          <p>Janv. 2023</p>
         </li>
         <li>
           <p>Role:</p>
           <p>Front-End</p>
         </li>
         <li>
-          <p>Technology:</p>
+          <p>Technologie:</p>
           <p>Svelte</p>
         </li>
       </ul>
@@ -95,7 +95,9 @@
             duration: 650,
             easing: quadInOut,
           }}
-          style:transform="translateX({Math.floor(Math.random() * maxTranslate)}px)"
+          style:transform="translateX({Math.floor(
+            Math.random() * maxTranslate
+          )}px)"
         >
           <img
             in:topScaleInInverse={{
@@ -127,7 +129,7 @@
     >
       <div class="back">
         <div class="line" />
-        <a on:click={goBack} on:keydown={goBack}>back</a>
+        <a on:click={goBack} on:keydown={goBack}>retour</a>
       </div>
       <div class="visit">
         <a
@@ -135,7 +137,7 @@
           target="_blank"
           rel="noopener noreferrer"
         >
-          visit site
+          visiter le site
         </a>
         <div class="line" />
       </div>

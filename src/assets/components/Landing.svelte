@@ -21,7 +21,7 @@
       direction: "horizontal",
       lerp: 0.75,
       treshold: 35,
-      draggable: true
+      draggable: true,
     });
 
     //enabling the scroll only for wide screen
@@ -43,18 +43,7 @@
   const transition = (e) => {
     //removing the scroll while the transition is getting done
     scroll.destroy();
-
-    const container = document.querySelector("[data-scroll-container]");
-    const children = [...container.children];
-
-    for (let i = 0; children.length != 0; i++) {
-      let randomNum = Math.floor(Math.random() * children.length);
-      let randomIndex = Math.max(Math.min(randomNum, children.length), 0);
-
-      show = false;
-
-      children.splice(randomIndex, 1);
-    }
+    show = false;
 
     let target = e.currentTarget;
     setTimeout(() => {

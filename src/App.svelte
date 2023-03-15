@@ -8,8 +8,7 @@
   import IssTracker from "./assets/components/IssTracker.svelte";
   import CercleMixte from "./assets/components/CercleMixte.svelte";
   import VisitReims from "./assets/components/VisitReims.svelte";
-
-  let index = 0;
+  import About from "./assets/components/About.svelte";
 
   const routingMap = {
     "": Landing,
@@ -19,7 +18,8 @@
     "#quantum-physics": QuantumPhysics,
     "#iss-tracker": IssTracker,
     "#cercle-mixte": CercleMixte,
-    "#visit-reims": VisitReims
+    "#visit-reims": VisitReims,
+    "#a-propos": About
   };
 
   let currentComponent = routingMap[location.hash];

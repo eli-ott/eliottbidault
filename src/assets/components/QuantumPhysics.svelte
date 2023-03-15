@@ -113,6 +113,10 @@
 
     width: 100%;
 
+    @media screen and (max-width: 1024px) {
+      @include global.flex(column, nowrap, flex-start, center);
+    }
+
     @media screen and (max-width: 400px) {
       height: 295vh;
     }

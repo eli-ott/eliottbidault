@@ -1,7 +1,6 @@
 <script>
   import { onMount } from "svelte";
   import { quadInOut } from "svelte/easing";
-  import { fade } from "svelte/transition";
   import Scroll from "../plugins/scroll";
   import {
     topScaleIn,
@@ -10,6 +9,8 @@
     topScaleOutInverse,
   } from "../plugins/transitions";
   import { store } from "../store";
+  import ProjectInfos from "./ProjectsInfos.svelte";
+  import ProjectsNav from "./ProjectsNav.svelte";
 
   let data = $store.quantumPhysics;
 
@@ -54,35 +55,11 @@
 
 <section class="quantum-physics project">
   {#if show}
-    <div
-      in:fade={{
-        delay: 650,
-        duration: 250,
-      }}
-      out:fade={{
-        duration: 250,
-      }}
-      class="infos"
-    >
-      <ul>
-        <li>
-          <p>Completé:</p>
-          <p>Sept. 2022</p>
-        </li>
-        <li>
-          <p>Role:</p>
-          <p>Front-End</p>
-        </li>
-        <li>
-          <p>Technologies:</p>
-          <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JS</li>
-          </ul>
-        </li>
-      </ul>
-    </div>
+    <ProjectInfos
+      completed={data.completed}
+      role={data.role}
+      techs={data.techs}
+    />
   {/if}
   <div class="images" data-scroll-container>
     {#if show}
@@ -120,39 +97,21 @@
     {/if}
   </div>
   {#if show}
-    <div
-      in:fade={{
-        delay: 650,
-        duration: 250,
-      }}
-      out:fade={{
-        duration: 250,
-      }}
-      class="directions"
-    >
-      <div class="back">
-        <div class="line" />
-        <a on:click={goBack} on:keydown={goBack}>retour</a>
-      </div>
-      <div class="visit">
-        <a
-          href="https://eli-ott.github.io/quantumPhysics/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          visiter le site
-        </a>
-        <div class="line" />
-      </div>
-    </div>
+    <ProjectsNav
+      on:goBack={goBack}
+      link="https://eli-ott.github.io/quantumPhysics/"
+    />
   {/if}
 </section>
 
 <style lang="scss">
-  @use "../style/project.scss";
+  @use "../style/global.scss";
 
   section.quantum-physics {
+    @include global.flex(row, nowrap, center, start);
     height: 275vh;
+
+    width: 100%;
 
     @media screen and (max-width: 400px) {
       height: 295vh;
@@ -165,6 +124,36 @@
     }
     @media screen and (min-width: 601px) and (max-width: 1024px) {
       height: 400vh;
+    }
+
+    > div.images {
+      @include global.flex(column, nowrap, center, start);
+      height: 100%;
+      width: 50%;
+
+      @media screen and (max-width: 1024px) {
+        @include global.flex(column, nowrap, center, center);
+        width: 100%;
+      }
+
+      > div {
+        overflow: hidden;
+
+        margin: 5vh 0;
+        height: 30%;
+        width: 60%;
+
+        @media screen and (max-width: 675px) {
+          width: 90%;
+        }
+        @media screen and (min-width: 676px) and (max-width: 1024px) {
+          width: 50%;
+        }
+
+        > img {
+          width: 100%;
+        }
+      }
     }
   }
 </style>

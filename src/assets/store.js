@@ -2,6 +2,9 @@ import { readable } from "svelte/store";
 
 export const store = readable({
   picturePortfolio: {
+    completed: "Janv. 2023",
+    role: "Front-End",
+    techs: ["Svelte"],
     path: "pictures/portfolioPicture/",
     src: [
       "landing.png",
@@ -22,6 +25,9 @@ export const store = readable({
     speed: [1.1, 0.9, 1, 1.1, 1.05, 0.9],
   },
   quantumPhysics: {
+    completed: "Sept. 2022",
+    role: "Front-End",
+    techs: ["HTML", "CSS", "JavaScript"],
     path: "pictures/quantumPhysics/",
     src: [
       "landing.png",
@@ -44,12 +50,18 @@ export const store = readable({
     speed: [0.9, 1.1, 1.15, 1.05, 1.1, 1.15, 1],
   },
   issTracker: {
+    completed: "Janv. 2023",
+    role: "Front-End",
+    techs: ["Svelte", "Three.js"],
     path: "pictures/issTracker/",
     src: ["landing.png", "earth.png", "infos.png"],
     alt: ["landing", "earth", "infos"],
     speed: [1, 0.9, 1.1],
   },
   cercleMixte: {
+    completed: "Juil. 2022",
+    role: "Full-Stack",
+    techs: ["HTML", "CSS", "JavaScript", "PHP"],
     path: "pictures/cercleMixte/",
     src: [
       "landing.png",
@@ -70,9 +82,12 @@ export const store = readable({
     speed: [1.1, 0.9, 1, 1.1, 1.05, 0.9],
   },
   visitReims: {
+    completed: "Juil. 2022",
+    role: "Front-End",
+    techs: ["HTML", "CSS", "JavaScript"],
     path: "pictures/visitReims/",
     src: ["landingPage.png", "otherPage.png"],
     alt: ["landing", "other monument"],
-    speed: [1.1, 0.95]
+    speed: [1.1, 0.95],
   },
 });

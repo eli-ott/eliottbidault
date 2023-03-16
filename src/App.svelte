@@ -25,6 +25,9 @@
   let currentComponent = routingMap[location.hash];
 
   const changePage = () => {
+    //reseting the scroll for mobile users
+    window.scroll(0, 0);
+    
     currentComponent = routingMap[location.hash];
   };
 

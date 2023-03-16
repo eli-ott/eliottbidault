@@ -27,11 +27,15 @@
   const changePage = () => {
     currentComponent = routingMap[location.hash];
   };
+
+  const changeDir = (e) => {
+    location.hash = e.detail.dir;
+  }
 </script>
 
 <svelte:window on:hashchange={changePage} />
 <main>
-  <Header />
+  <Header on:changePage={changeDir} />
   <svelte:component this={currentComponent} />
   <Footer />
 </main>

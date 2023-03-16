@@ -5,7 +5,11 @@ $white: #e6e0db;
 
 @font-face {
     font-family: bebasNeue;
-    src: url('/BebasNeue-Regular.ttf');
+    src: url('/fonts/BebasNeue-Regular.ttf');
+}
+@font-face {
+    font-family: merriweather;
+    src: url('/fonts/Merriweather-Regular.ttf');
 }
 
 @mixin flex($dir: row, $wrap: nowrap, $justify: center, $align: center) {

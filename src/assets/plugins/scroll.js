@@ -20,6 +20,19 @@ export default class Scroll {
     this.draggable = draggable;
     this.aeraListener = new AbortController();
 
+    //calculating min and max to use it after
+    this.min = 0;
+    this.max;
+    direction == "vertical"
+      ? (this.max =
+          Math.ceil(-((100 * el.clientHeight) / window.innerHeight)) +
+          100 +
+          treshold)
+      : (this.max =
+          Math.ceil(-((100 * el.clientWidth) / window.innerWidth)) +
+          100 +
+          treshold);
+
     //adding data-scroll-container in case it doesn't have it and setting basic values to element to use them after
     el.setAttribute("data-scroll-container", "");
     el.setAttribute("data-scroll-direction", direction);
@@ -42,19 +55,6 @@ export default class Scroll {
     if (this.draggable) {
       let startFrom, currentScrollStart;
 
-      //calculating min and max so the drag doesn't go too far
-      let min = 0;
-      let max;
-      this.direction == "vertical"
-        ? (max =
-            Math.ceil(-((100 * this.el.clientHeight) / window.innerHeight)) +
-            100 +
-            this.treshold)
-        : (max =
-            Math.ceil(-((100 * this.el.clientWidth) / window.innerWidth)) +
-            100 +
-            this.treshold);
-
       window.addEventListener(
         "mousedown",
         (e) => {
@@ -64,9 +64,6 @@ export default class Scroll {
             : (startFrom = e.clientX);
 
           currentScrollStart = currentScroll;
-
-          // startX = e.pageX - window.offsetLeft;
-          // scrollLeft = window.scrollLeft;
         },
         {
           signal: this.aeraListener.signal,
@@ -104,11 +101,9 @@ export default class Scroll {
                 ((e.clientX - startFrom) * 100) / window.innerWidth
               ));
 
-          console.log(lateralMvt);
-
           if (
-            (lateralMvt < 0 && currentScroll >= max) ||
-            (lateralMvt > 0 && currentScroll <= min)
+            (lateralMvt < 0 && currentScroll >= this.max) ||
+            (lateralMvt > 0 && currentScroll <= this.min)
           ) {
             //offseting the elements with the translate function
             currentScroll = currentScrollStart + lateralMvt;
@@ -125,14 +120,18 @@ export default class Scroll {
     //triggering dummy mouse event to append the inline transform style
     window.dispatchEvent(
       new WheelEvent("wheel", {
-        deltaY: -1,
+        deltaY: -0,
         deltaMode: 1,
       })
     );
 
     //appengind an overflow hidden so the user won't be able to scroll when the scroll is initiated
-    document.querySelector("body").style.overflow = "hidden";
-    document.getElementById("app").style.overflow = "hidden";
+    document.querySelector("body") != null
+      ? (document.querySelector("body").style.overflow = "hidden")
+      : console.log("no body");
+    document.querySelector("#app") != null
+      ? (document.querySelector("#app").style.overflow = "hidden")
+      : console.log("no app");
   };
 
   destroy = function () {
@@ -142,8 +141,101 @@ export default class Scroll {
     this.aeraListener.abort();
 
     //reinitializing the scroll
-    document.querySelector("body").removeAttribute("style");
-    document.getElementById("app").removeAttribute("style");
+    document.querySelector("body") != null
+      ? document.querySelector("body").removeAttribute("style")
+      : console.log("no body");
+    document.querySelector("#app") != null
+      ? document.querySelector("#app").removeAttribute("style")
+      : console.log("no app");
+  };
+
+  scrollTo = function (el) {
+    let offset;
+
+    this.direction == "vertical"
+      ? (offset = Math.round(
+          (el.getBoundingClientRect().top * 100) / window.innerHeight
+        ))
+      : (offset = Math.round(
+          (el.getBoundingClientRect().left * 100) / window.innerWidth
+        ));
+
+    currentScroll += -offset;
+
+    //containing the current scroll value between min and max
+    //reversing min and max due to negative scroll value
+    currentScroll = Math.max(Math.min(currentScroll, this.min), this.max);
+
+    Scroll.scrollElements(this.el, this.direction);
+  };
+
+  center = function (el) {
+    let offset, spaceNeeded;
+
+    if (this.direction == "vertical") {
+      offset = (el.getBoundingClientRect().top * 100) / window.innerHeight;
+      spaceNeeded =
+        (((window.innerHeight - el.getBoundingClientRect().height) / 2) * 100) /
+        window.innerHeight;
+    } else if (this.direction == "horizontal") {
+      offset = (el.getBoundingClientRect().left * 100) / window.innerWidth;
+      spaceNeeded =
+        (((window.innerWidth - el.getBoundingClientRect().width) / 2) * 100) /
+        window.innerWidth;
+    }
+
+    let scrollTo = -offset + spaceNeeded;
+
+    currentScroll += scrollTo;
+
+    //containing the current scroll value between min and max
+    //reversing min and max due to negative scroll value
+    currentScroll = Math.max(Math.min(currentScroll, this.min), this.max);
+
+    Scroll.scrollElements(this.el, this.direction);
+  };
+
+  scrollIntoView = function (el, amountVisible = 10) {
+    //containing amountVisible into [0;100] because it's a precentage
+    amountVisible = Math.max(Math.min(amountVisible, 100), 0);
+
+    //getting the offset top in VW
+    let offestClose, offsetFar, size;
+
+    if (this.direction == "vertical") {
+      offestClose = (el.getBoundingClientRect().top * 100) / window.innerHeight;
+      offsetFar =
+        (el.getBoundingClientRect().bottom * 100) / window.innerHeight;
+      size = (el.getBoundingClientRect().height * 100) / window.innerHeight;
+    } else if (this.direction == "horizontal") {
+      offestClose = (el.getBoundingClientRect().left * 100) / window.innerWidth;
+      offsetFar = (el.getBoundingClientRect().right * 100) / window.innerWidth;
+      size = (el.getBoundingClientRect().width * 100) / window.innerWidth;
+    }
+
+    let visibleSize = size * (amountVisible / 100);
+
+    if (offestClose > 100) {
+      let distanceToViewport = offestClose - 100 + visibleSize;
+      currentScroll += -distanceToViewport;
+
+      //containing the current scroll value between min and max
+      //reversing min and max due to negative scroll value
+      currentScroll = Math.max(Math.min(currentScroll, this.min), this.max);
+
+      Scroll.scrollElements(this.el, this.direction);
+    } else if (offsetFar < 0) {
+      let distanceToViewport = offsetFar - visibleSize;
+      currentScroll += -distanceToViewport;
+
+      //containing the current scroll value between min and max
+      //reversing min and max due to negative scroll value
+      currentScroll = Math.max(Math.min(currentScroll, this.min), this.max);
+
+      Scroll.scrollElements(this.el, this.direction);
+    } else {
+      console.warn("Element already visible");
+    }
   };
 
   static setTransition(scrollEl, ease, lerp) {
@@ -156,7 +248,7 @@ export default class Scroll {
 
   static manageScroll(event, el, direction, treshold) {
     let step = 10;
-    let min = -10;
+    let min = 0;
     let max;
     direction == "vertical"
       ? (max =
@@ -168,12 +260,9 @@ export default class Scroll {
           100 +
           treshold);
 
-    if (event.deltaY > 0 && currentScroll >= max) {
-      //offseting the elements with the translate function
-      currentScroll -= step;
-    } else if (event.deltaY < 0 && currentScroll <= min) {
-      currentScroll += step;
-    }
+    event.deltaY > 0
+      ? (currentScroll = Math.max(Math.min(currentScroll - step, min), max))
+      : (currentScroll = Math.max(Math.min(currentScroll + step, min), max));
 
     //making the obkects move;
     Scroll.scrollElements(el, direction);

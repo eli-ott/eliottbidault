@@ -9,12 +9,16 @@
   } from "../plugins/transitions";
   import Scroll from "../plugins/scroll";
 
+  export let dir;
+
   let scroll;
   let show = false;
   let imageTransform, maxTranslate;
 
   onMount(() => {
-    show = true;
+    setTimeout(() => {
+      show = true;
+    }, 250);
 
     scroll = new Scroll({
       el: document.querySelector("[data-scroll-container]"),
@@ -27,6 +31,7 @@
     //enabling the scroll only for wide screen
     if (window.screen.width > 1024) {
       setTimeout(() => {
+        console.log("init");
         scroll.init();
       }, 650);
     }
@@ -46,12 +51,36 @@
     show = false;
 
     let target = e.currentTarget;
+    let location = target.dataset.title || dir;
     setTimeout(() => {
-      window.location.hash = `#${target.dataset.title}`;
+      window.location.hash = `#${location}`;
     }, 850);
+  };
+
+  //doing this to avoid clicking on a project when the used just wanted to drag scroll
+  let mouseDown = false;
+  const removeClick = () => {
+    console.log("removing");
+    if (mouseDown) {
+      document.querySelector("[data-scroll-container]").style.pointerEvents =
+        "none";
+    } else {
+      document.querySelector("[data-scroll-container]").style.pointerEvents =
+        "all";
+    }
   };
 </script>
 
+<svelte:window
+  on:hashchange={scroll.destroy()}
+  on:mouseup={() => {
+    mouseDown = false;
+  }}
+  on:mousedown={() => {
+    mouseDown = true;
+  }}
+  on:mousemove={removeClick}
+/>
 <section class="projects-display" data-scroll-container>
   {#if show}
     <div

@@ -23,16 +23,19 @@
 >
   <div class="back">
     <div class="line" />
-    <button on:click={goBack} on:keydown={goBack}>retour</button>
+    <button data-content="retour" on:click={goBack} on:keydown={goBack}
+      >retour</button
+    >
   </div>
   <div class="visit">
     <a
+      data-content="visiter le site"
       href={link}
       target="_blank"
       rel="noopener noreferrer"
     >
       visiter le site
-  </a>
+    </a>
     <div class="line" />
   </div>
 </div>
@@ -76,6 +79,38 @@
         font-size: 2.5vw;
         color: global.$brown;
       }
+
+      &::before,
+      &::after {
+        content: attr(data-content);
+        position: absolute;
+
+        top: 0;
+        left: 0;
+
+        text-decoration: none;
+        font-family: bebasNeue;
+        font-size: 1vw;
+
+        color: global.$brown;
+
+        transition: top 0.25s;
+
+        @media screen and (max-width: 1024px) {
+          display: none;
+        }
+      }
+      &::after {
+        top: 100%;
+        color: global.$blue;
+      }
+
+      &:hover::before {
+        top: -100%;
+      }
+      &:hover:after {
+        top: 0;
+      }
     }
 
     div.line {
@@ -101,40 +136,6 @@
       @media screen and (max-width: 1024px) {
         width: 47.5%;
         @include global.flex(row, nowrap, start, center);
-      }
-
-      > a {
-        &::before,
-        &::after {
-          content: "visiter le site";
-          position: absolute;
-
-          top: 0;
-          left: 0;
-
-          text-decoration: none;
-          font-family: bebasNeue;
-          font-size: 1vw;
-
-          color: global.$brown;
-
-          transition: top 0.25s;
-
-          @media screen and (max-width: 1024px) {
-            display: none;
-          }
-        }
-        &::after {
-          top: 100%;
-          color: global.$blue;
-        }
-
-        &:hover::before {
-          top: -100%;
-        }
-        &:hover:after {
-          top: 0;
-        }
       }
 
       > div.line {
@@ -179,40 +180,6 @@
       @media screen and (max-width: 1024px) {
         width: 47.5%;
         @include global.flex(row, nowrap, end, center);
-      }
-
-      > button {
-        &::before,
-        &::after {
-          content: "retour";
-          position: absolute;
-
-          top: 0;
-          left: 0;
-
-          text-decoration: none;
-          font-family: bebasNeue;
-          font-size: 1vw;
-
-          color: global.$brown;
-
-          transition: top 0.25s;
-
-          @media screen and (max-width: 1024px) {
-            display: none;
-          }
-        }
-        &::after {
-          top: 100%;
-          color: global.$blue;
-        }
-
-        &:hover::before {
-          top: -100%;
-        }
-        &:hover:after {
-          top: 0;
-        }
       }
 
       > div.line {

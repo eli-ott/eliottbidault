@@ -62,11 +62,25 @@
 
       > li {
         @include global.flex(row, nowrap, space-between, start);
+        position: relative;
 
+        text-align: right;
         font-family: bebasNeue;
         font-size: 17px;
         line-height: 2.5vh;
         margin-bottom: 2%;
+
+        &::before {
+          content: "\A0";
+          position: absolute;
+
+          height: 1px;
+          width: 100%;
+          top: -1px;
+          left: 0;
+
+          background: global.$brown;
+        }
       }
       ul {
         list-style-type: inherit;

@@ -58,7 +58,6 @@
         <li>
           <p>Mes passions:</p>
           <ul>
-            <li>Design</li>
             <li>Photographie</li>
             <li>Musique</li>
           </ul>

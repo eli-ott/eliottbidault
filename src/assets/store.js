@@ -22,7 +22,7 @@ export const store = readable({
       "menu",
       "mobile version",
     ],
-    speed: [1.1, 0.9, 1, 1.1, 1.05, 0.9],
+    speed: [1.1, 0.9, 1, 1.1, 1.05, 1],
   },
   quantumPhysics: {
     completed: "Sept. 2022",

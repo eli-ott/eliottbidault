@@ -49,7 +49,7 @@
 
       text-align: center;
       font-family: bebasNeue;
-      font-size: 1vw;
+      font-size: 17px;
 
       color: global.$brown;
 
@@ -81,7 +81,7 @@
         margin: 0 calc(0.5vw + 24px);
 
         font-family: bebasNeue;
-        font-size: 1vw;
+        font-size: 17px;
         text-decoration: none;
 
         color: transparent;
@@ -96,7 +96,7 @@
 
           text-decoration: none;
           font-family: bebasNeue;
-          font-size: 1vw;
+          font-size: 17px;
 
           color: global.$brown;
 

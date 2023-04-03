@@ -86,7 +86,7 @@
 
       text-decoration: none;
       font-family: bebasNeue;
-      font-size: 17px;
+      font-size: 19px;
 
       color: transparent;
 

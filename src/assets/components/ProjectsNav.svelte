@@ -66,7 +66,7 @@
 
       text-decoration: none;
       font-family: bebasNeue;
-      font-size: 1vw;
+      font-size: 17px;
 
       color: transparent;
 
@@ -90,7 +90,7 @@
 
         text-decoration: none;
         font-family: bebasNeue;
-        font-size: 1vw;
+        font-size: 17px;
 
         color: global.$brown;
 

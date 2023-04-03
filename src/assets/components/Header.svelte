@@ -136,7 +136,7 @@
     h1 {
       font-family: bebasNeue;
       font-size: 1.75vw;
-      line-height: 1.35vw;
+      line-height: 2.5vh;
       height: 100%;
 
       color: global.$brown;

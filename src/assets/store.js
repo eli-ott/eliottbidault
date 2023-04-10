@@ -58,6 +58,15 @@ export const store = readable({
     alt: ["landing", "earth", "infos"],
     speed: [1, 0.9, 1.1],
   },
+  montBerru: {
+    completed: "Avr. 2023",
+    role: "Front-End",
+    techs: ["HTML5", "CSS3", "JavaScript"],
+    path: "pictures/montBerru/",
+    src: ["landing.png", "dossard.png", "countdown.png"],
+    alt: ["landing", "dossard", "countdown"],
+    speed: [1, 0.9, 1.1],
+  },
   cercleMixte: {
     completed: "Juil. 2022",
     role: "Full-Stack",

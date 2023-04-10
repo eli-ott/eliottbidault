@@ -62,9 +62,11 @@
   const removeClick = () => {
     console.log("removing");
     if (mouseDown) {
+      //@ts-ignore
       document.querySelector("[data-scroll-container]").style.pointerEvents =
         "none";
     } else {
+      //@ts-ignore
       document.querySelector("[data-scroll-container]").style.pointerEvents =
         "all";
     }
@@ -143,6 +145,37 @@
         on:keydown={transition}
         src="pictures/quantumPhysics/landing.png"
         alt="quantum physics landing"
+      />
+    </div>
+    <div
+      in:rightScaleIn={{
+        duration: 650,
+        easing: quadInOut,
+      }}
+      out:rightScaleOut={{
+        duration: 650,
+        easing: quadInOut,
+      }}
+      data-scroll-speed="1.15"
+      style:transform="{imageTransform}{Math.floor(
+        Math.random() * maxTranslate
+      )}px)"
+    >
+      <img
+        in:rightScaleInInverse={{
+          duration: 650,
+          easing: quadInOut,
+        }}
+        out:rightScaleOutInverse={{
+          duration: 650,
+          easing: quadInOut,
+        }}
+        data-index="1"
+        data-title="trail-mont-berru"
+        on:click={transition}
+        on:keydown={transition}
+        src="pictures/montBerru/landing.png"
+        alt="trail mont berru landing"
       />
     </div>
     <div

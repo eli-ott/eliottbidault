@@ -6,6 +6,7 @@
   import PicturePortfolio from "./assets/components/PicturePortfolio.svelte";
   import QuantumPhysics from "./assets/components/QuantumPhysics.svelte";
   import IssTracker from "./assets/components/IssTracker.svelte";
+  import MontBerru from "./assets/components/MontBerru.svelte";
   import CercleMixte from "./assets/components/CercleMixte.svelte";
   import VisitReims from "./assets/components/VisitReims.svelte";
   import About from "./assets/components/About.svelte";
@@ -16,6 +17,7 @@
     "#landing": Landing,
     "#picture-portfolio": PicturePortfolio,
     "#quantum-physics": QuantumPhysics,
+    "#trail-mont-berru": MontBerru,
     "#iss-tracker": IssTracker,
     "#cercle-mixte": CercleMixte,
     "#visit-reims": VisitReims,

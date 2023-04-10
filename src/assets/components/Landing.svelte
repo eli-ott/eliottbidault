@@ -281,18 +281,18 @@
     @include global.flex(row, nowrap, flex-start, center);
 
     height: 87.5vh;
-    width: 225vw;
+    width: 250vw;
 
     @media screen and (max-width: 675px) {
       @include global.flex(column, nowrap, space-evenly, center);
-      height: 175vh;
+      height: 200vh;
       width: 100%;
     }
 
     @media screen and (min-width: 676px) and (max-width: 1024px) {
       @include global.flex(column, nowrap, space-evenly, center);
       width: 100%;
-      height: 225vh;
+      height: 250vh;
     }
 
     > div {

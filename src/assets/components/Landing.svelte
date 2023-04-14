@@ -24,7 +24,7 @@
       el: document.querySelector("[data-scroll-container]"),
       direction: "horizontal",
       lerp: 0.75,
-      treshold: 35,
+      treshold: 50,
       draggable: true,
     });
 
@@ -187,6 +187,37 @@
         duration: 650,
         easing: quadInOut,
       }}
+      data-scroll-speed="1.3"
+      style:transform="{imageTransform}{Math.floor(
+        Math.random() * maxTranslate
+      )}px)"
+    >
+      <img
+        in:rightScaleInInverse={{
+          duration: 650,
+          easing: quadInOut,
+        }}
+        out:rightScaleOutInverse={{
+          duration: 650,
+          easing: quadInOut,
+        }}
+        data-index="1"
+        data-title="coffee"
+        on:click={transition}
+        on:keydown={transition}
+        src="pictures/coffee/landing.png"
+        alt="coffee landing"
+      />
+    </div>
+    <div
+      in:rightScaleIn={{
+        duration: 650,
+        easing: quadInOut,
+      }}
+      out:rightScaleOut={{
+        duration: 650,
+        easing: quadInOut,
+      }}
       data-scroll-speed="1.25"
       style:transform="{imageTransform}{Math.floor(
         Math.random() * maxTranslate
@@ -281,18 +312,18 @@
     @include global.flex(row, nowrap, flex-start, center);
 
     height: 87.5vh;
-    width: 250vw;
+    width: 300vw;
 
     @media screen and (max-width: 675px) {
       @include global.flex(column, nowrap, space-evenly, center);
-      height: 200vh;
+      height: 225vh;
       width: 100%;
     }
 
     @media screen and (min-width: 676px) and (max-width: 1024px) {
       @include global.flex(column, nowrap, space-evenly, center);
       width: 100%;
-      height: 250vh;
+      height: 275vh;
     }
 
     > div {

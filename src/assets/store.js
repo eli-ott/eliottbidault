@@ -67,6 +67,15 @@ export const store = readable({
     alt: ["landing", "dossard", "countdown"],
     speed: [1, 0.9, 1.1],
   },
+  coffee: {
+    completed: "Avr. 2023",
+    role: "Front-End & Motion",
+    techs: ["HTML5", "CSS3", "GSAP", "Three.js"],
+    path: "pictures/coffee/",
+    src: ["landing.png", "first-part.png", "second-part.png"],
+    alt: ["landing", "first", "second"],
+    speed: [1, 0.9, 1.1],
+  },
   cercleMixte: {
     completed: "Juil. 2022",
     role: "Full-Stack",

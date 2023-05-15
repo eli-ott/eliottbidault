@@ -177,7 +177,7 @@
       > p {
         font-family: merriweather;
         font-size: 23px;
-        line-height: 3vh;
+        line-height: 4vh;
 
         width: 75%;
 

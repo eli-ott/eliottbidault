@@ -28,6 +28,7 @@
         instagram
       </a>
       <a data-content="github" href="https://github.com/eli-ott"> github </a>
+      <a data-content="linkedin" href="https://www.linkedin.com/in/eliott-bidault-hervouet/"> linkedin </a>
     </div>
   </footer>
 {/if}

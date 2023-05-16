@@ -24,7 +24,7 @@
       el: document.querySelector("[data-scroll-container]"),
       direction: "horizontal",
       lerp: 0.75,
-      treshold: 65,
+      treshold: 75,
       draggable: true,
     });
 

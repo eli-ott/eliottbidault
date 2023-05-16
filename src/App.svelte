@@ -11,6 +11,7 @@
   import VisitReims from "./assets/components/VisitReims.svelte";
   import About from "./assets/components/About.svelte";
   import Coffee from "./assets/components/Coffee.svelte";
+  import DoIt from "./assets/components/Do-it.svelte";
 
   const routingMap = {
     "": Landing,
@@ -24,6 +25,7 @@
     "#cercle-mixte": CercleMixte,
     "#visit-reims": VisitReims,
     "#a-propos": About,
+    "#do-it": DoIt
   };
 
   let currentComponent = routingMap[location.hash];

@@ -24,6 +24,21 @@ export const store = readable({
     ],
     speed: [1.1, 0.9, 1, 1.1, 1.05, 1],
   },
+  doIt: {
+    completed: "Mai. 2023",
+    role: "Full-stack",
+    techs: ["Sveltekit", "Typescript", "Prisma"],
+    path: "pictures/do-it/",
+    src: [
+      "landing.png",
+      "profile.png",
+      "feature.png",
+      "todos.png",
+      "sign-up.png",
+      "sign-in.png",
+    ],
+    speed: [0.9, 1.1, 1.15, 1.05, 1.1, 1.15, 1],
+  },
   quantumPhysics: {
     completed: "Sept. 2022",
     role: "Front-End",

@@ -24,7 +24,7 @@
       el: document.querySelector("[data-scroll-container]"),
       direction: "horizontal",
       lerp: 0.75,
-      treshold: 50,
+      treshold: 65,
       draggable: true,
     });
 
@@ -156,6 +156,37 @@
         duration: 650,
         easing: quadInOut,
       }}
+      data-scroll-speed="1"
+      style:transform="{imageTransform}{Math.floor(
+        Math.random() * maxTranslate
+      )}px)"
+    >
+      <img
+        in:rightScaleInInverse={{
+          duration: 650,
+          easing: quadInOut,
+        }}
+        out:rightScaleOutInverse={{
+          duration: 650,
+          easing: quadInOut,
+        }}
+        data-index="1"
+        data-title="do-it"
+        on:click={transition}
+        on:keydown={transition}
+        src="pictures/do-it/landing.png"
+        alt="do-it landing"
+      />
+    </div>
+    <div
+      in:rightScaleIn={{
+        duration: 650,
+        easing: quadInOut,
+      }}
+      out:rightScaleOut={{
+        duration: 650,
+        easing: quadInOut,
+      }}
       data-scroll-speed="1.15"
       style:transform="{imageTransform}{Math.floor(
         Math.random() * maxTranslate
@@ -187,7 +218,7 @@
         duration: 650,
         easing: quadInOut,
       }}
-      data-scroll-speed="1.3"
+      data-scroll-speed="1.25"
       style:transform="{imageTransform}{Math.floor(
         Math.random() * maxTranslate
       )}px)"
@@ -249,7 +280,7 @@
         duration: 650,
         easing: quadInOut,
       }}
-      data-scroll-speed="1.4"
+      data-scroll-speed="1.35"
       style:transform="{imageTransform}{Math.floor(
         Math.random() * maxTranslate
       )}px)"
@@ -280,7 +311,7 @@
         duration: 650,
         easing: quadInOut,
       }}
-      data-scroll-speed="1.35"
+      data-scroll-speed="1.4"
       style:transform="{imageTransform}{Math.floor(
         Math.random() * maxTranslate
       )}px)"
@@ -312,11 +343,11 @@
     @include global.flex(row, nowrap, flex-start, center);
 
     height: 87.5vh;
-    width: 300vw;
+    width: 375vw;
 
     @media screen and (max-width: 675px) {
       @include global.flex(column, nowrap, space-evenly, center);
-      height: 225vh;
+      height: 300vh;
       width: 100%;
     }
 
@@ -340,9 +371,6 @@
       width: 100%;
 
       overflow: hidden;
-
-      // filter: invert(27%) sepia(97%) saturate(100%) hue-rotate(3deg)
-      //   brightness(28%) contrast(102%);
 
       @media screen and (max-width: 675px) {
         width: 90%;

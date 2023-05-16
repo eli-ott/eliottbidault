@@ -51,7 +51,7 @@
   >
     <h1>
       Eliott Bidault-Hervouet <br />
-      Web Developer
+      Développeur web
     </h1>
     <!-- <h2>2023 portfolio</h2> -->
     <button data-content={btnContent} on:click={changePage}>{btnContent}</button

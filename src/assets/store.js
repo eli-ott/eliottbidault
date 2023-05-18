@@ -42,7 +42,7 @@ export const store = readable({
   quantumPhysics: {
     completed: "Sept. 2022",
     role: "Front-End",
-    techs: ["HTML", "CSS", "JavaScript"],
+    techs: ["HTML5", "CSS3", "JavaScript"],
     path: "pictures/quantumPhysics/",
     src: [
       "landing.png",
@@ -94,7 +94,7 @@ export const store = readable({
   cercleMixte: {
     completed: "Juil. 2022",
     role: "Full-Stack",
-    techs: ["HTML", "CSS", "JavaScript", "PHP"],
+    techs: ["HTML5", "CSS3", "JavaScript", "jQuery", "PHP"],
     path: "pictures/cercleMixte/",
     src: [
       "landing.png",
@@ -117,7 +117,7 @@ export const store = readable({
   visitReims: {
     completed: "Juil. 2022",
     role: "Front-End",
-    techs: ["HTML", "CSS", "JavaScript"],
+    techs: ["HTML5", "CSS3", "JavaScript"],
     path: "pictures/visitReims/",
     src: ["landingPage.png", "otherPage.png"],
     alt: ["landing", "other monument"],

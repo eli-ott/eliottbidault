@@ -108,12 +108,11 @@
           duration: 650,
           easing: quadInOut,
         }}
-        data-index="1"
-        data-title="picture-portfolio"
+        data-title="cercle-mixte"
         on:click={transition}
         on:keydown={transition}
-        src="pictures/portfolioPicture/landing.png"
-        alt="photography portfolio landing"
+        src="pictures/cercleMixte/landing.png"
+        alt="cercle mixte reims landing"
       />
     </div>
     <div
@@ -139,12 +138,11 @@
           duration: 650,
           easing: quadInOut,
         }}
-        data-index="2"
-        data-title="quantum-physics"
+        data-title="trail-mont-berru"
         on:click={transition}
         on:keydown={transition}
-        src="pictures/quantumPhysics/landing.png"
-        alt="quantum physics landing"
+        src="pictures/montBerru/landing.png"
+        alt="trail mont berru landing"
       />
     </div>
     <div
@@ -170,12 +168,11 @@
           duration: 650,
           easing: quadInOut,
         }}
-        data-index="1"
-        data-title="do-it"
+        data-title="picture-portfolio"
         on:click={transition}
         on:keydown={transition}
-        src="pictures/do-it/landing.png"
-        alt="do-it landing"
+        src="pictures/portfolioPicture/landing.png"
+        alt="photography portfolio landing"
       />
     </div>
     <div
@@ -201,12 +198,11 @@
           duration: 650,
           easing: quadInOut,
         }}
-        data-index="1"
-        data-title="trail-mont-berru"
+        data-title="do-it"
         on:click={transition}
         on:keydown={transition}
-        src="pictures/montBerru/landing.png"
-        alt="trail mont berru landing"
+        src="pictures/do-it/landing.png"
+        alt="do-it landing"
       />
     </div>
     <div
@@ -232,7 +228,6 @@
           duration: 650,
           easing: quadInOut,
         }}
-        data-index="1"
         data-title="coffee"
         on:click={transition}
         on:keydown={transition}
@@ -263,12 +258,11 @@
           duration: 650,
           easing: quadInOut,
         }}
-        data-index="3"
-        data-title="iss-tracker"
+        data-title="quantum-physics"
         on:click={transition}
         on:keydown={transition}
-        src="pictures/issTracker/landing.png"
-        alt="iss tracker landing"
+        src="pictures/quantumPhysics/landing.png"
+        alt="quantum physics landing"
       />
     </div>
     <div
@@ -294,12 +288,11 @@
           duration: 650,
           easing: quadInOut,
         }}
-        data-index="4"
-        data-title="cercle-mixte"
+        data-title="iss-tracker"
         on:click={transition}
         on:keydown={transition}
-        src="pictures/cercleMixte/landing.png"
-        alt="cercle mixte reims landing"
+        src="pictures/issTracker/landing.png"
+        alt="iss tracker landing"
       />
     </div>
     <div
@@ -325,7 +318,6 @@
           duration: 650,
           easing: quadInOut,
         }}
-        data-index="5"
         data-title="visit-reims"
         on:click={transition}
         on:keydown={transition}

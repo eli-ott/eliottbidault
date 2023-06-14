@@ -152,6 +152,12 @@ export default class Scroll {
   scrollTo = function (el) {
     let offset;
 
+    let elementSpeed = parseFloat(el.parentNode.dataset.scrollSpeed);
+
+    //reversing the value so 1.25 will be 0.75 instead of being 25% more it's 25% less
+    elementSpeed = +Math.abs(elementSpeed - 2).toFixed(2);
+
+    //calculating the element's left/top offset in vh/vw
     this.direction == "vertical"
       ? (offset = Math.round(
           (el.getBoundingClientRect().top * 100) / window.innerHeight
@@ -159,6 +165,9 @@ export default class Scroll {
       : (offset = Math.round(
           (el.getBoundingClientRect().left * 100) / window.innerWidth
         ));
+
+    //multiplicating by the elementspeed so if the elements goes faster than 1 it will still align good
+    offset *= elementSpeed;
 
     currentScroll += -offset;
 
@@ -172,19 +181,30 @@ export default class Scroll {
   center = function (el) {
     let offset, spaceNeeded;
 
+    let elementSpeed = parseFloat(el.parentNode.dataset.scrollSpeed);
+
+    //reversing the value so 1.25 will be 0.75 instead of being 25% more it's 25% less
+    //substracting .05 from it so it centers perfectly
+    elementSpeed = Math.abs(elementSpeed - 2);
+
     if (this.direction == "vertical") {
+      //calculating the element's top offset in v
       offset = (el.getBoundingClientRect().top * 100) / window.innerHeight;
+
+      //calculating the left/up part of the window that is left after the element's width or height has been deduced in vw/vh
       spaceNeeded =
         (((window.innerHeight - el.getBoundingClientRect().height) / 2) * 100) /
         window.innerHeight;
     } else if (this.direction == "horizontal") {
       offset = (el.getBoundingClientRect().left * 100) / window.innerWidth;
+
       spaceNeeded =
         (((window.innerWidth - el.getBoundingClientRect().width) / 2) * 100) /
         window.innerWidth;
     }
 
-    let scrollTo = -offset + spaceNeeded;
+    //multiplicating by the elementspeed so if the elements goes faster than 1 it will still align good
+    let scrollTo = (-offset + spaceNeeded) * elementSpeed;
 
     currentScroll += scrollTo;
 
@@ -264,7 +284,7 @@ export default class Scroll {
       ? (currentScroll = Math.max(Math.min(currentScroll - step, min), max))
       : (currentScroll = Math.max(Math.min(currentScroll + step, min), max));
 
-    //making the obkects move;
+    //making the objects move;
     Scroll.scrollElements(el, direction);
   }
 

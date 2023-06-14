@@ -31,8 +31,19 @@
     //enabling the scroll only for wide screen
     if (window.screen.width > 1024) {
       setTimeout(() => {
-        console.log("init");
         scroll.init();
+
+        setTimeout(() => {
+          //centering the last element viewed
+          if (sessionStorage.getItem("lastViewed")) {
+            let lastViewedTitle = sessionStorage.getItem("lastViewed");
+            let lastViewedElement = document.querySelector(
+              `[data-title="${lastViewedTitle}"]`
+            );
+
+            scroll.center(lastViewedElement);
+          }
+        }, 300);
       }, 650);
     }
   });
@@ -46,11 +57,15 @@
   }
 
   const transition = (e) => {
+    let target = e.currentTarget;
+
+    //storing the viewed project so that we will center it if he goes back to the landing
+    sessionStorage.setItem("lastViewed", target.dataset.title);
+
     //removing the scroll while the transition is getting done
     scroll.destroy();
     show = false;
 
-    let target = e.currentTarget;
     let location = target.dataset.title || dir;
     setTimeout(() => {
       window.location.hash = `#${location}`;
@@ -60,7 +75,6 @@
   //doing this to avoid clicking on a project when the used just wanted to drag scroll
   let mouseDown = false;
   const removeClick = () => {
-    console.log("removing");
     if (mouseDown) {
       //@ts-ignore
       document.querySelector("[data-scroll-container]").style.pointerEvents =
@@ -82,6 +96,9 @@
     mouseDown = true;
   }}
   on:mousemove={removeClick}
+  on:load={() => {
+    sessionStorage.removeItem("lastViewed");
+  }}
 />
 <section class="projects-display" data-scroll-container>
   {#if show}

@@ -98,7 +98,7 @@
     {/if}
   </div>
   {#if show}
-    <ProjectsNav on:goBack={goBack} link="https://cercle-mixte-reims.ga" />
+    <ProjectsNav on:goBack={goBack} link="https://cercle-mixte-reims.fr" />
   {/if}
 </section>
 

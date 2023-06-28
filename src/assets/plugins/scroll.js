@@ -1,7 +1,8 @@
-let currentScroll = 0;
-let isDown = false;
-let startX;
-let scrollLeft;
+let currentScroll = 0,
+  isDown = false,
+  startX,
+  scrollLeft,
+  canScroll = true;
 
 export default class Scroll {
   constructor({
@@ -280,12 +281,20 @@ export default class Scroll {
           100 +
           treshold);
 
-    event.deltaY > 0
-      ? (currentScroll = Math.max(Math.min(currentScroll - step, min), max))
-      : (currentScroll = Math.max(Math.min(currentScroll + step, min), max));
+    if (canScroll) {
+      canScroll = false;
 
-    //making the objects move;
-    Scroll.scrollElements(el, direction);
+      event.deltaY > 0
+        ? (currentScroll = Math.max(Math.min(currentScroll - step, min), max))
+        : (currentScroll = Math.max(Math.min(currentScroll + step, min), max));
+
+      //making the elements move;
+      Scroll.scrollElements(el, direction);
+
+      setTimeout(() => {
+        canScroll = true;
+      }, 50);
+    }
   }
 
   static scrollElements(el, direction) {
@@ -304,11 +313,11 @@ export default class Scroll {
       if (direction == "horizontal") {
         //@ts-ignore
         element.style.transform = `translateY(${transformMatrix.f}px)
-        translateX(${currentScroll * speed}vw)`;
+          translateX(${currentScroll * speed}vw)`;
       } else if (direction == "vertical") {
         //@ts-ignore
         element.style.transform = `translateY(${currentScroll * speed}vh)
-        translateX(${transformMatrix.e}px)`;
+          translateX(${transformMatrix.e}px)`;
       }
     }
   }

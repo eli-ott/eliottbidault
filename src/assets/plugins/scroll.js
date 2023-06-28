@@ -281,6 +281,7 @@ export default class Scroll {
           100 +
           treshold);
 
+    //throttoling the scroll
     if (canScroll) {
       canScroll = false;
 

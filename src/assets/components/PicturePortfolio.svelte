@@ -100,7 +100,7 @@
   {#if show}
     <ProjectsNav
       on:goBack={goBack}
-      link="https://picture-portfolio.vercel.app"
+      link="https://picture-portfolio-eli-ott.vercel.app"
     />
   {/if}
 </section>

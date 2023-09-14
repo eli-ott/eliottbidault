@@ -188,8 +188,8 @@
         data-title="picture-portfolio"
         on:click={transition}
         on:keydown={transition}
-        src="pictures/portfolioPicture/landing.png"
-        alt="photography portfolio landing"
+        src="pictures/portfolioPicture/landing-dark.png"
+        alt="photography portfolio landing in dark mode"
       />
     </div>
     <div

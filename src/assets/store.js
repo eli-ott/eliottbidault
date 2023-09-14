@@ -4,7 +4,7 @@ export const store = readable({
   picturePortfolio: {
     completed: "Janv. 2023",
     role: "Front-End",
-    techs: ["Svelte"],
+    techs: ["Angular", "SCSS"],
     path: "pictures/portfolioPicture/",
     src: [
       "landing-dark.png",
